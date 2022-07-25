@@ -49,6 +49,10 @@ describe("Unit test find product use case", () => {
   it("should not find a product", async () => {
     const productRepository = new ProductRepository();
 
+    const product = ProductFactory.create("Product B", 1000);
+
+    productRepository.create(product);
+
     const useCase = new FindProductUseCase(productRepository);
 
     const input = {
