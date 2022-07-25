@@ -49,10 +49,11 @@ describe("unit test create customer use case", () => {
     );
   });
 
-  it("shoud throw a error when address is missing", async () => {
+  it("should throw a error when address is missing", async () => {
     const customerRepository = MockRepository();
     const customerCreateUseCase = new CreateCustomerUseCase(customerRepository);
 
+    input.name = "TEST";
     input.address.street = "";
 
     await expect(customerCreateUseCase.execute(input)).rejects.toThrow(

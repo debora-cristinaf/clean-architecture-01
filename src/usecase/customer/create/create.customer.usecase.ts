@@ -19,10 +19,10 @@ export default class CreateCustomerUseCase {
     const customer = CustomerFactory.createWithAddress(
       input.name,
       new Address(
-        input.address?.street,
-        input.address?.number,
-        input.address?.zip,
-        input.address?.city
+        input.address.street,
+        input.address.number,
+        input.address.zip,
+        input.address.city
       )
     );
 
@@ -32,10 +32,10 @@ export default class CreateCustomerUseCase {
       id: customer.id,
       name: customer.name,
       address: {
-        street: customer.Address?.street,
-        number: customer.Address?.number,
-        zip: customer.Address?.zip,
-        city: customer.Address?.city,
+        street: customer.Address.street,
+        number: customer.Address.number,
+        zip: customer.Address.zip,
+        city: customer.Address.city,
       },
     };
   }
