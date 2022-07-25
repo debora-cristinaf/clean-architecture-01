@@ -28,18 +28,18 @@ export default class Address {
   get city(): string {
     return this._city;
   }
-  
+
   validate() {
-    if (this._street.length === 0) {
+    if (this._street && this._street.length === 0) {
       throw new Error("Street is required");
     }
-    if (this._number === 0) {
+    if (this._number && this._number === 0) {
       throw new Error("Number is required");
     }
-    if (this._zip.length === 0) {
+    if (this._zip && this._zip.length === 0) {
       throw new Error("Zip is required");
     }
-    if (this._city.length === 0) {
+    if (this._city && this._city.length === 0) {
       throw new Error("City is required");
     }
   }
