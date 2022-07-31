@@ -34,9 +34,13 @@ describe("E2E test for customer", () => {
     expect(response.status).toBe(500);
   });
 
-  it("should list a customer", async () => {
-    const response = await request(app).get("/customer");
+  it("should list a customer xml", async () => {
+    const response = await request(app)
+      .get("/customer")
+      .set("Accept", "application/xml")
+      .send();
 
     expect(response.status).toBe(200);
+    expect(response.text).toContain(`<?xml version="1.0" encoding="UTF-8"?>`);
   });
 });
