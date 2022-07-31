@@ -6,7 +6,7 @@ import {
   OutputUpdateProductDTO,
 } from "./update.product.dto";
 
-export default class CreateProductUseCase {
+export default class UpdateProductUseCase {
   private productRepository: ProductRepositoryInterface;
 
   constructor(productRepository: ProductRepositoryInterface) {
