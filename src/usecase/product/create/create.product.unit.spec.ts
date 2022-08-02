@@ -35,7 +35,19 @@ describe("unit test create product use case", () => {
     input.name = "";
 
     await expect(productCreateUseCase.execute(input)).rejects.toThrow(
-      "Name is required"
+      "Product: Name is required"
+    );
+  });
+
+  it("shoud throw a error when name and price is missing", async () => {
+    const productRepository = MockRepository();
+    const productCreateUseCase = new CreateProductUseCase(productRepository);
+
+    input.name = "";
+    input.price = 0;
+
+    await expect(productCreateUseCase.execute(input)).rejects.toThrow(
+      "Product: Name is required,Product: price must be greater than 0"
     );
   });
 
@@ -47,7 +59,7 @@ describe("unit test create product use case", () => {
     input.price = -1;
 
     await expect(productCreateUseCase.execute(input)).rejects.toThrow(
-      "Price must be greater than zero"
+      "Product: price must be greater than 0"
     );
   });
 });

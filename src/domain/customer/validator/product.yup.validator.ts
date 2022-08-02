@@ -16,7 +16,7 @@ export default class ProductYupValidator
           price: yup
             .number()
             .moreThan(0)
-            .required("Price must be greater than zero"),
+            .required("Product: price must be greater than 0"),
         })
         .validateSync(
           {
